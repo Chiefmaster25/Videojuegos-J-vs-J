@@ -21,7 +21,7 @@ public class BotonMenu3 {
     }
 
     public void setPosicion(float x, float y) {
-        sprite.setPosition(600, 600);
+        sprite.setPosition(x, y);
     }
 
     public Sprite getSprite() {

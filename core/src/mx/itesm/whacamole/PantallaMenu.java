@@ -27,9 +27,11 @@ public class PantallaMenu implements Screen {
     private BotonMenu btnPlay;
     private BotonMenu2 btnPlay2;
     private BotonMenu3 btnPlay3;
+    private BotonExit btnExit;
     private Texture texturaBtnPlay;
     private Texture texturaBtnPlay2;
     private Texture texturaBtnPlay3;
+    private Texture texturaBtnExit;
 
 
     public PantallaMenu(Principal principal) {
@@ -48,12 +50,15 @@ public class PantallaMenu implements Screen {
         cargarTexturas();
         fondo= new Fondo (texturaFondo);
         btnPlay = new BotonMenu(texturaBtnPlay);
-        btnPlay2 = new BotonMenu2(texturaBtnPlay);
-        btnPlay3 = new BotonMenu3(texturaBtnPlay);
+        btnPlay2 = new BotonMenu2(texturaBtnPlay2);
+        btnPlay3 = new BotonMenu3(texturaBtnPlay3);
+        btnExit = new BotonExit(texturaBtnExit);
         //btnPlay.setPosicion(Principal.ANCHO_MUNDO/2, Principal.ALTO_MUNDO/2);
-        btnPlay.setPosicion(200,200);
-        btnPlay2.setPosicion(400,400);
-        btnPlay3.setPosicion(600,600);
+        btnPlay.setPosicion(50,150);
+        btnPlay2.setPosicion(150,300);
+        btnPlay3.setPosicion(250,450);
+        btnExit.setPosicion(0,50);
+        btnExit.setSize(50,50);
 
         batch = new SpriteBatch();
 
@@ -64,6 +69,7 @@ public class PantallaMenu implements Screen {
         texturaBtnPlay = new Texture(Gdx.files.internal("play.jpg"));
         texturaBtnPlay2 = new Texture(Gdx.files.internal("como.jpg"));
         texturaBtnPlay3 = new Texture(Gdx.files.internal("retos.jpg"));
+        texturaBtnExit = new Texture(Gdx.files.internal("exitBtn.png"));
 
     }
 
@@ -83,6 +89,7 @@ public class PantallaMenu implements Screen {
         btnPlay.render(batch);
         btnPlay2.render(batch);
         btnPlay3.render(batch);
+        btnExit.render(batch);
         batch.end();
 
     }
