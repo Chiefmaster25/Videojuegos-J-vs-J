@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 /**
  * Created by AllanIvan on 12/02/2016.
  */
+
 public class BotonMenu2 {
 
     private Sprite sprite;

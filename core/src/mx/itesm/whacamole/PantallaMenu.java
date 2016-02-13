@@ -61,9 +61,9 @@ public class PantallaMenu implements Screen {
 
     private void cargarTexturas() {
         texturaFondo = new Texture(Gdx.files.internal("Menu.jpg"));
-        texturaBtnPlay = new Texture(Gdx.files.internal("playBtn.png"));
-        texturaBtnPlay2 = new Texture(Gdx.files.internal("playBtn.png"));
-        texturaBtnPlay3 = new Texture(Gdx.files.internal("playBtn.png"));
+        texturaBtnPlay = new Texture(Gdx.files.internal("play.jpg"));
+        texturaBtnPlay2 = new Texture(Gdx.files.internal("como.jpg"));
+        texturaBtnPlay3 = new Texture(Gdx.files.internal("retos.jpg"));
 
     }
 
