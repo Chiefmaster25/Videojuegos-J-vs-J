@@ -57,7 +57,8 @@ public class PantallaMenu implements Screen {
         btnPlay.setPosicion(50,150);
         btnPlay2.setPosicion(150,300);
         btnPlay3.setPosicion(250,450);
-        btnExit.setPosicion(0,50);
+        btnExit.setPosicion(20,600);
+        //btnExit.setPosicion(0,0);
         btnExit.setSize(50,50);
 
         batch = new SpriteBatch();
