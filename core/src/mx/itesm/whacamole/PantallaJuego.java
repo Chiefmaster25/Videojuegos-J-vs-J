@@ -50,6 +50,9 @@ public class PantallaJuego implements Screen {
 
     private float tiempoSinGolpe = MAX_TIEMPO_SIN_GOLPE;
 
+    //Para Enum State
+    private State state = State.RUN;
+
     public PantallaJuego(Principal principal) {
         this.principal = principal;
     }
@@ -181,6 +184,21 @@ public class PantallaJuego implements Screen {
         texto.mostrarMensaje(batch, "Tiempo: " + tiempoSinGolpe,
                 Principal.ANCHO_MUNDO*0.1f, Principal.ALTO_MUNDO*0.9f);
         batch.end();
+
+        switch (state) {
+            case RUN:
+//do suff here
+                break;
+            case PAUSE:
+//do stuff here
+                break;
+            case RESUME:
+
+                break;
+
+            default:
+                break;
+        }
     }
 
     private void probarTiempoGolpe(){
@@ -197,15 +215,15 @@ public class PantallaJuego implements Screen {
 
     }
 
-    @Override
-    public void pause() {
+    //@Override
+    //public void pause() {
 
-    }
+//    }
 
-    @Override
-    public void resume() {
+    //@Override
+  //  public void resume() {
 
-    }
+    //}
 
     @Override
     public void hide() {
@@ -222,5 +240,27 @@ public class PantallaJuego implements Screen {
         texturaFondo.dispose();
         efectoGolpe.dispose();
         musicaFondo.dispose();
+    }
+
+    public enum State{
+        PAUSE,
+        RUN,
+        RESUME,
+        STOPPED
+    }
+
+    @Override
+    public void pause()
+    {
+        this.state = State.PAUSE;
+    }
+
+    @Override
+    public void resume()
+    {
+        this.state = State.RESUME;
+    }
+    public void setGameState(State s){
+        this.state = s;
     }
 }
