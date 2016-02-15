@@ -20,8 +20,8 @@ public class BotonMenu4 {
         sprite.setPosition(x, y);
     }
 
-    public void setSize(float x, float y){
-        sprite.setSize(x, y);
+    public void setSize(){
+        sprite.setSize(300,150);
     }
 
     public Sprite getSprite() {

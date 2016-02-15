@@ -64,19 +64,18 @@ public class PantallaMenu implements Screen {
         btnPlay3.setPosicion(250,450);
         btnPlay4.setPosicion(900, 50);
         //btnExit.setPosicion(0,0);
-        btnPlay4.setSize(300,150);
+        btnPlay4.setSize();
 
         batch = new SpriteBatch();
 
     }
-
 
     private void cargarTexturas() {
         texturaFondo = new Texture(Gdx.files.internal("Menu.jpg"));
         texturaBtnPlay = new Texture(Gdx.files.internal("play.jpg"));
         texturaBtnPlay2 = new Texture(Gdx.files.internal("como.jpg"));
         texturaBtnPlay3 = new Texture(Gdx.files.internal("retos.jpg"));
-        texturaBtnPlay4 = new Texture(Gdx.files.internal("retos.jpg"));
+        texturaBtnPlay4 = new Texture(Gdx.files.internal("exitBtn.png"));
 
     }
 
@@ -124,7 +123,7 @@ public class PantallaMenu implements Screen {
             camara.unproject(coordenadas); //Traduce las coordenadas
             float x = coordenadas.x;
             float y = coordenadas.y;
-            if (verificarEntrada(x,y) == true){
+            if (verificarEntrada(x, y) == true){
                 Gdx.app.log("leerEntrada","Tap sobre el botón");
                 principal.setScreen(new PantallaJuego(principal));
                 //Gdx.app.exit();
@@ -154,7 +153,7 @@ public class PantallaMenu implements Screen {
             camara.unproject(coordenadas); //Traduce las coordenadas
             float x = coordenadas.x;
             float y = coordenadas.y;
-            if (verificarSalida(x, y) == true){
+            if (verificarSalida(x, y)){
                 Gdx.app.log("leerSalida", "Tap sobre el botón");
                 //Gdx.input.setCatchBackKey(true);
                 Gdx.app.exit();
@@ -169,18 +168,19 @@ public class PantallaMenu implements Screen {
     }
 
     private boolean verificarCreditos(float x, float y) {
-        Sprite sprite = btnPlay3.getSprite();
+        Sprite sprite = btnPlay2.getSprite();
+        //return true;
         return x>=sprite.getX() && x<=sprite.getY() + sprite.getWidth() && y>= sprite.getY() && y<=sprite.getY()+sprite.getHeight();
         //return false;
     }
 
     private boolean verificarSalida(float x, float y){
-        Sprite sprite = btnPlay2.getSprite();
+        Sprite sprite = btnPlay4.getSprite();
         //return x>=sprite.getX() && x<=sprite.getY() + sprite.getWidth() && y>= sprite.getY() && y<=sprite.getY()+sprite.getHeight() && x>=sprite.getScaleX() &&
         //x<=sprite.getScaleX() &&  y>=sprite.getScaleY() && y<=sprite.getScaleY();
         //return x>=sprite.getScaleX() && x<=sprite.getScaleY() + sprite.getWidth() && y>= sprite.getScaleY() && y<=sprite.getScaleY()+sprite.getHeight();
         return x>=sprite.getX() && x<=sprite.getY() + sprite.getWidth() && y>= sprite.getY() && y<=sprite.getY()+sprite.getHeight();
-        //return false;
+        //return true;
     }
 
     @Override
