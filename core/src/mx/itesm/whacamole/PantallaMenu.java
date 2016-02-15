@@ -89,6 +89,7 @@ public class PantallaMenu implements Screen {
 
         leerEntrada(); //Revisar touch
         leerSalida(); //Botón para salir
+        leerCreditos(); //Acceso a pantalla de Créditos
 
         batch.setProjectionMatrix(camara.combined);
 
@@ -123,9 +124,9 @@ public class PantallaMenu implements Screen {
             camara.unproject(coordenadas); //Traduce las coordenadas
             float x = coordenadas.x;
             float y = coordenadas.y;
-            if (verificarBoton(x,y) == true){
+            if (verificarEntrada(x,y) == true){
                 Gdx.app.log("leerEntrada","Tap sobre el botón");
-                principal.setScreen(new PantallaCreditos(principal));
+                principal.setScreen(new PantallaJuego(principal));
                 //Gdx.app.exit();
             }
         }
@@ -138,7 +139,7 @@ public class PantallaMenu implements Screen {
             camara.unproject(coordenadas); //Traduce las coordenadas
             float x = coordenadas.x;
             float y = coordenadas.y;
-            if (verificarBoton(x,y) == true){
+            if (verificarCreditos(x, y) == true){
                 Gdx.app.log("leerCréditos","Menú-Creditos");
                 principal.setScreen(new PantallaCreditos(principal));
                 //Gdx.app.exit();
@@ -161,7 +162,7 @@ public class PantallaMenu implements Screen {
         }
     }
 
-    private boolean verificarBoton(float x, float y) {
+    private boolean verificarEntrada(float x, float y) {
         Sprite sprite = btnPlay.getSprite();
         return x>=sprite.getX() && x<=sprite.getY() + sprite.getWidth() && y>= sprite.getY() && y<=sprite.getY()+sprite.getHeight();
         //return false;
