@@ -30,12 +30,12 @@ public class PantallaMenu implements Screen {
     private BotonMenu btnPlay;
     private BotonMenu2 btnPlay2;
     private BotonMenu3 btnPlay3;
-    private BotonMenu4 btnPlay4;
+    //private BotonMenu4 btnPlay4;
 
     private Texture texturaBtnPlay;
     private Texture texturaBtnPlay2;
     private Texture texturaBtnPlay3;
-    private Texture texturaBtnPlay4;
+    //private Texture texturaBtnPlay4;
 
     public PantallaMenu(Principal principal) {
         this.principal=principal;
@@ -56,15 +56,15 @@ public class PantallaMenu implements Screen {
         btnPlay = new BotonMenu(texturaBtnPlay);
         btnPlay2 = new BotonMenu2(texturaBtnPlay2);
         btnPlay3 = new BotonMenu3(texturaBtnPlay3);
-        btnPlay4 = new BotonMenu4(texturaBtnPlay4);
+        //btnPlay4 = new BotonMenu4(texturaBtnPlay4);
         //btnPlay.setPosicion(Principal.ANCHO_MUNDO/2, Principal.ALTO_MUNDO/2);
 
         btnPlay.setPosicion(50,150);
         btnPlay2.setPosicion(150,300);
         btnPlay3.setPosicion(250,450);
-        btnPlay4.setPosicion(900, 50);
+        //btnPlay4.setPosicion(900, 50);
         //btnExit.setPosicion(0,0);
-        btnPlay4.setSize();
+        //btnPlay4.setSize();
 
         batch = new SpriteBatch();
 
@@ -75,7 +75,6 @@ public class PantallaMenu implements Screen {
         texturaBtnPlay = new Texture(Gdx.files.internal("play.jpg"));
         texturaBtnPlay2 = new Texture(Gdx.files.internal("como.jpg"));
         texturaBtnPlay3 = new Texture(Gdx.files.internal("retos.jpg"));
-        texturaBtnPlay4 = new Texture(Gdx.files.internal("exitBtn.png"));
 
     }
 
@@ -98,7 +97,6 @@ public class PantallaMenu implements Screen {
         btnPlay.render(batch);
         btnPlay2.render(batch);
         btnPlay3.render(batch);
-        btnPlay4.render(batch);
         batch.end();
 
     }
@@ -153,7 +151,7 @@ public class PantallaMenu implements Screen {
             camara.unproject(coordenadas); //Traduce las coordenadas
             float x = coordenadas.x;
             float y = coordenadas.y;
-            if (verificarSalida(x, y)){
+            if (verificarSalida(x, y) == true){
                 Gdx.app.log("leerSalida", "Tap sobre el botón");
                 //Gdx.input.setCatchBackKey(true);
                 Gdx.app.exit();
@@ -175,7 +173,7 @@ public class PantallaMenu implements Screen {
     }
 
     private boolean verificarSalida(float x, float y){
-        Sprite sprite = btnPlay4.getSprite();
+        Sprite sprite = btnPlay3.getSprite();
         //return x>=sprite.getX() && x<=sprite.getY() + sprite.getWidth() && y>= sprite.getY() && y<=sprite.getY()+sprite.getHeight() && x>=sprite.getScaleX() &&
         //x<=sprite.getScaleX() &&  y>=sprite.getScaleY() && y<=sprite.getScaleY();
         //return x>=sprite.getScaleX() && x<=sprite.getScaleY() + sprite.getWidth() && y>= sprite.getScaleY() && y<=sprite.getScaleY()+sprite.getHeight();
