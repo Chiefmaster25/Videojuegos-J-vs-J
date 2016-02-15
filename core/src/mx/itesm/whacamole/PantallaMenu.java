@@ -125,7 +125,22 @@ public class PantallaMenu implements Screen {
             float y = coordenadas.y;
             if (verificarBoton(x,y) == true){
                 Gdx.app.log("leerEntrada","Tap sobre el botón");
-                principal.setScreen(new PantallaJuego(principal));
+                principal.setScreen(new PantallaCreditos(principal));
+                //Gdx.app.exit();
+            }
+        }
+    }
+
+    private void leerCreditos(){
+        if (Gdx.input.justTouched()) {
+            Vector3 coordenadas = new Vector3();
+            coordenadas.set(Gdx.input.getX(), Gdx.input.getY(), 0);
+            camara.unproject(coordenadas); //Traduce las coordenadas
+            float x = coordenadas.x;
+            float y = coordenadas.y;
+            if (verificarBoton(x,y) == true){
+                Gdx.app.log("leerCréditos","Menú-Creditos");
+                principal.setScreen(new PantallaCreditos(principal));
                 //Gdx.app.exit();
             }
         }
@@ -148,6 +163,12 @@ public class PantallaMenu implements Screen {
 
     private boolean verificarBoton(float x, float y) {
         Sprite sprite = btnPlay.getSprite();
+        return x>=sprite.getX() && x<=sprite.getY() + sprite.getWidth() && y>= sprite.getY() && y<=sprite.getY()+sprite.getHeight();
+        //return false;
+    }
+
+    private boolean verificarCreditos(float x, float y) {
+        Sprite sprite = btnPlay3.getSprite();
         return x>=sprite.getX() && x<=sprite.getY() + sprite.getWidth() && y>= sprite.getY() && y<=sprite.getY()+sprite.getHeight();
         //return false;
     }
