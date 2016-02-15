@@ -30,12 +30,12 @@ public class PantallaMenu implements Screen {
     private BotonMenu btnPlay;
     private BotonMenu2 btnPlay2;
     private BotonMenu3 btnPlay3;
-    private BotonExit btnExit;
+    private BotonMenu4 btnPlay4;
 
     private Texture texturaBtnPlay;
     private Texture texturaBtnPlay2;
     private Texture texturaBtnPlay3;
-    private Texture texturaBtnExit;
+    private Texture texturaBtnPlay4;
 
     public PantallaMenu(Principal principal) {
         this.principal=principal;
@@ -46,6 +46,7 @@ public class PantallaMenu implements Screen {
         //crear la cámara y la vista
         camara = new OrthographicCamera(Principal.ANCHO_MUNDO, Principal.ALTO_MUNDO);
         camara.position.set(Principal.ANCHO_MUNDO / 2, Principal.ALTO_MUNDO / 2, 0);
+        //camara.position.set(Principal.ANCHO_MUNDO/3, Principal.ALTO_MUNDO/3, 0);
         camara.update();
 
         vista = new StretchViewport(Principal.ANCHO_MUNDO, Principal.ALTO_MUNDO, camara);
@@ -55,15 +56,15 @@ public class PantallaMenu implements Screen {
         btnPlay = new BotonMenu(texturaBtnPlay);
         btnPlay2 = new BotonMenu2(texturaBtnPlay2);
         btnPlay3 = new BotonMenu3(texturaBtnPlay3);
-        btnExit = new BotonExit(texturaBtnExit);
+        btnPlay4 = new BotonMenu4(texturaBtnPlay4);
         //btnPlay.setPosicion(Principal.ANCHO_MUNDO/2, Principal.ALTO_MUNDO/2);
 
         btnPlay.setPosicion(50,150);
         btnPlay2.setPosicion(150,300);
         btnPlay3.setPosicion(250,450);
-        btnExit.setPosicion(900,50);
+        btnPlay4.setPosicion(900, 50);
         //btnExit.setPosicion(0,0);
-        btnExit.setSize(300,300);
+        btnPlay4.setSize(300,150);
 
         batch = new SpriteBatch();
 
@@ -75,7 +76,7 @@ public class PantallaMenu implements Screen {
         texturaBtnPlay = new Texture(Gdx.files.internal("play.jpg"));
         texturaBtnPlay2 = new Texture(Gdx.files.internal("como.jpg"));
         texturaBtnPlay3 = new Texture(Gdx.files.internal("retos.jpg"));
-        texturaBtnExit = new Texture(Gdx.files.internal("exit.jpg"));
+        texturaBtnPlay4 = new Texture(Gdx.files.internal("retos.jpg"));
 
     }
 
@@ -97,7 +98,7 @@ public class PantallaMenu implements Screen {
         btnPlay.render(batch);
         btnPlay2.render(batch);
         btnPlay3.render(batch);
-        btnExit.render(batch);
+        btnPlay4.render(batch);
         batch.end();
 
     }
@@ -152,7 +153,10 @@ public class PantallaMenu implements Screen {
     }
 
     private boolean verificarSalida(float x, float y){
-        Sprite sprite = btnExit.getSprite();
+        Sprite sprite = btnPlay2.getSprite();
+        //return x>=sprite.getX() && x<=sprite.getY() + sprite.getWidth() && y>= sprite.getY() && y<=sprite.getY()+sprite.getHeight() && x>=sprite.getScaleX() &&
+        //x<=sprite.getScaleX() &&  y>=sprite.getScaleY() && y<=sprite.getScaleY();
+        //return x>=sprite.getScaleX() && x<=sprite.getScaleY() + sprite.getWidth() && y>= sprite.getScaleY() && y<=sprite.getScaleY()+sprite.getHeight();
         return x>=sprite.getX() && x<=sprite.getY() + sprite.getWidth() && y>= sprite.getY() && y<=sprite.getY()+sprite.getHeight();
         //return false;
     }

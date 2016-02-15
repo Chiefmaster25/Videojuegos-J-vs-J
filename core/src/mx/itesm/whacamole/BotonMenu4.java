@@ -4,10 +4,10 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-public class BotonExit {
+public class BotonMenu4 {
 
     private Sprite sprite;
-    public BotonExit(Texture textura){
+    public BotonMenu4(Texture textura){
         sprite = new Sprite(textura);
         sprite.setAlpha(0.6f);
     }

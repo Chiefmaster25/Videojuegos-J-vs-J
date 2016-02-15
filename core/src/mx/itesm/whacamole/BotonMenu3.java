@@ -11,7 +11,7 @@ public class BotonMenu3 {
 
     private Sprite sprite;
     public BotonMenu3(Texture textura){
-        sprite= new Sprite(textura);
+        sprite = new Sprite(textura);
         sprite.setAlpha(0.6f);
     }
 

@@ -260,7 +260,7 @@ public class PantallaJuego implements Screen {
     {
         this.state = State.RESUME;
     }
-    public void setGameState(State s){
-        this.state = s;
-    }
+    //public void setGameState(State s){
+      //  this.state = s;
+    //}
 }
